@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { Button, Grid, Paper, Card } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import { ReactFacebookFailureResponse, ReactFacebookLoginInfo } from 'react-facebook-login';
 import { makeStyles } from '@material-ui/core/styles';
 import { useForm } from 'react-hook-form';

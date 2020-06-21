@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
-import EnvVariables from '../utils/EnvVariables';
 import Logo from '../../assets/logo.png';
 
 export default function Header(): ReactElement {
