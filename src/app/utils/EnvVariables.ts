@@ -9,7 +9,7 @@ export default class EnvVariables {
 
   public static readonly FACEBOOK_APP_ID: string = EnvVariables.getVariable('FACEBOOK_APP_ID');
 
-  public static readonly BASE_URL: string = EnvVariables.getVariable('BASE_URL');
+  public static readonly API_URL: string = EnvVariables.getVariable('API_URL');
 
   public static readonly PRIMARY_COLOR: string = '#7044ff';
 

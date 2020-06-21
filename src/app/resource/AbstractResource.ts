@@ -33,7 +33,7 @@ export default abstract class AbstractResource {
   }
 
   private getResourceURL(resource: string): string {
-    return `${ EnvVariables.BASE_URL }/api/${ resource }`;
+    return `${ EnvVariables.API_URL }/api/${ resource }`;
   };
 
 }
