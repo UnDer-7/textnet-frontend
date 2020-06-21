@@ -11,7 +11,8 @@ export default class EnvVariables {
 
   public static readonly API_URL: string = EnvVariables.getVariable('API_URL');
 
-  public static readonly PRIMARY_COLOR: string = '#7044ff';
+  public static readonly PRIMARY_COLOR: string = '#fefefe';
+  public static readonly SECONDARY_COLOR: string = '#000000';
 
   private static getVariable(name: string): string {
     const envName = `REACT_APP_${name}`;

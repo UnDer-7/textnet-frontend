@@ -1,10 +1,11 @@
 :root {
-  --primary-color: #7044ff
+  --primary-color: #fefefe
 }
 
 body, html, #root {
   margin: 0;
-  padding: 2px 2px;
+  padding: 0;
+  overflow: hidden;
 }
 
 .primary-color {

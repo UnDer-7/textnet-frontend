@@ -1,6 +1,8 @@
 import React, { ReactElement } from 'react';
 import { Grid, Typography } from '@material-ui/core';
+
 import EnvVariables from '../utils/EnvVariables';
+import Logo from '../../assets/logo.png';
 
 export default function Header(): ReactElement {
   return (
@@ -9,13 +11,7 @@ export default function Header(): ReactElement {
           sm={ 6 }
           justify='center'
     >
-      <Typography variant='h2'
-                  align='center'
-                  color='primary'
-                  style={ { marginBottom: 20 } }
-      >
-        { EnvVariables.APP_NAME }
-      </Typography>
+      <img  src={Logo} alt="fireSpot"/>
     </Grid>
   );
 }

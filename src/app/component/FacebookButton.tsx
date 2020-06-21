@@ -8,25 +8,37 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 
 import EnvVariables from '../utils/EnvVariables';
 import { Consumer, Runnable } from '../models/types/Functions';
-import { Button } from '@material-ui/core';
+import { Button, PropTypes } from '@material-ui/core';
 
 interface FacebookButtonProps {
   onClick: Runnable
-  callBack: Consumer<ReactFacebookLoginInfo | ReactFacebookFailureResponse>
+  callBack: Consumer<ReactFacebookLoginInfo | ReactFacebookFailureResponse>,
+  buttonText: string,
+  fullWidth: boolean;
+  variant: 'text' | 'outlined' | 'contained';
+  color: PropTypes.Color;
 }
 
-export default function FacebookButton({ callBack, onClick }: FacebookButtonProps): ReactElement<FacebookButtonProps> {
+export default function FacebookButton(props: FacebookButtonProps): ReactElement<FacebookButtonProps> {
+  const {
+    onClick,
+    callBack,
+    buttonText,
+    fullWidth,
+    variant,
+    color
+  } = props;
   function renderButton(rp: any): ReactElement {
     return (
-      <Button variant='outlined'
-              color='primary'
-              fullWidth
+      <Button variant={variant}
+              color={color}
+              fullWidth={fullWidth}
               onClick={() => {
                 onClick();
                 rp.onClick()
               }}
               startIcon={<FacebookIcon />}>
-        Entrar com Facebook
+        {buttonText}
       </Button>
     );
   }
@@ -38,4 +50,11 @@ export default function FacebookButton({ callBack, onClick }: FacebookButtonProp
                    render={renderButton}
     />
   );
+}
+
+FacebookButton.defaultProps = {
+  buttonText: 'Entrar com Facebook',
+  variant: 'outlined',
+  color: 'primary',
+  fullWidth: true
 }
