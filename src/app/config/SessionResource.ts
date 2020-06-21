@@ -9,8 +9,7 @@ class SessionResource extends AbstractResource {
   }
 
   public signInWithEmail(data: PasswordWithEmail): Observable<any> {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const url = `${ this.BASE_URL }/email`;
+    // const url = `${ this.BASE_URL }/email`;
 
     return timer(3000)
       .pipe(
