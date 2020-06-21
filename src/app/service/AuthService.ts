@@ -1,5 +1,5 @@
 import { GoogleLoginResponse } from 'react-google-login';
-import SessionResource from '../config/SessionResource';
+import SessionResource from '../resource/SessionResource';
 import CommonProps from '../models/types/CommonProps';
 import { ConsumerImpl, RunnableImpl } from '../models/types/Functions';
 import { finalize } from 'rxjs/operators';

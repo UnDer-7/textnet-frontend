@@ -1,4 +1,4 @@
-import AbstractResource from '../resource/AbstractResource';
+import AbstractResource from './AbstractResource';
 import { Observable, timer } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { FacebookIdWithEmail, GoogleIdWithEmail, PasswordWithEmail } from '../models/types/Form';
@@ -9,7 +9,7 @@ class SessionResource extends AbstractResource {
   }
 
   public signInWithEmail(data: PasswordWithEmail): Observable<any> {
-    // const url = `${ this.BASE_URL }/email`;
+    // const url = `${ this.BASE_URL }/facebook`;
 
     return timer(3000)
       .pipe(
@@ -22,7 +22,7 @@ class SessionResource extends AbstractResource {
   }
 
   public signInWithFacebook(data: FacebookIdWithEmail): Observable<any> {
-    const url = `${ this.BASE_URL }/facebook`;
+    // const url = `${ this.BASE_URL }/facebook`;
 
     return timer(3000)
       .pipe(
@@ -35,7 +35,7 @@ class SessionResource extends AbstractResource {
   }
 
   public signInWithGoogle(data: GoogleIdWithEmail): Observable<any> {
-    const url = `${ this.BASE_URL }/google`;
+    // const url = `${ this.BASE_URL }/google`;
 
     return timer(3000)
       .pipe(
