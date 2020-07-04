@@ -27,7 +27,6 @@ export default function GoogleButton(props: props): ReactElement {
     color,
   } = props;
 
-  console.log('GB: ', EnvVariables.GOOGLE_CLIENT_ID);
   function renderButton(renderProps: { onClick: Runnable }): ReactElement {
     return (
       <Button fullWidth={fullWidth}

@@ -19,7 +19,6 @@ import { withBlockUI, WithBlockUIProps, withToast, WithToastProps } from '../../
 import Validations from '../../../utils/Validations';
 import { PasswordWithEmail } from '../../../models/types/Form';
 import { SIGN_UP_PATH } from '../AuthRoutes';
-import EnvVariables from '../../../utils/EnvVariables';
 
 function SignIn({ setIsBlockingUI, setToastProp }: WithBlockUIProps<WithToastProps>): ReactElement {
   const { register, handleSubmit, errors } = useForm<PasswordWithEmail>();
@@ -98,9 +97,7 @@ function SignIn({ setIsBlockingUI, setToastProp }: WithBlockUIProps<WithToastPro
 
   function onFailureSignInWithGoogle(response: any): void {
     setIsBlockingUI(false)
-    if (response?.error !== 'popup_closed_by_user') {
-      console.error(`Google sign in error: \n${ response }`);
-    }
+    console.error(`Google sign in error: \n${ response }`);
   }
 
   return (
@@ -112,10 +109,7 @@ function SignIn({ setIsBlockingUI, setToastProp }: WithBlockUIProps<WithToastPro
             <GoogleButton onSuccess={ onSuccessSignInWithGoogle }
                           onFailure={ onFailureSignInWithGoogle }
                           variant='contained'
-                          onClick={ () => {
-                            setIsBlockingUI(true)
-                            console.log('CLICK: ', EnvVariables.GOOGLE_CLIENT_ID);
-                          } }
+                          onClick={ () => setIsBlockingUI(true) }
                           buttonText='Entrar com Google'
             />
             <WhiteSpace spaceBottom={5}/>
