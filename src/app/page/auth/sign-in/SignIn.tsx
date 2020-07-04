@@ -84,6 +84,7 @@ function SignIn({ setIsBlockingUI, setToastProp }: WithBlockUIProps<WithToastPro
 
   function onSuccessSignInWithGoogle(response: GoogleLoginResponse | GoogleLoginResponseOffline): void {
     const google = response as GoogleLoginResponse;
+    console.log('1: ');
     AuthService.signIn({
       data: {
         email: google.getBasicProfile().getEmail(),
@@ -97,7 +98,7 @@ function SignIn({ setIsBlockingUI, setToastProp }: WithBlockUIProps<WithToastPro
 
   function onFailureSignInWithGoogle(response: any): void {
     setIsBlockingUI(false)
-    console.error(`Google sign in error: \n${ response }`);
+    console.error(`Google sign in error: `, response);
   }
 
   return (

@@ -84,9 +84,9 @@ function SignUp({ setToastProp, setIsBlockingUI }: WithToastProps<WithBlockUIPro
 
   function onFailureSignInWithGoogle(response: any): void {
     setIsBlockingUI(false);
+    console.error(`Google sign in error: \n${ response }`);
 
     if (response?.error !== 'popup_closed_by_user') {
-      console.error(`Google sign in error: \n${ response }`);
       setToastProp({
         message: 'Erro ao comunicar com Google',
         show: true,
