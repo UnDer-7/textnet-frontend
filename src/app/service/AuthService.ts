@@ -3,9 +3,8 @@ import SessionResource from '../resource/SessionResource';
 import CommonServiceProps from '../models/types/CommonServiceProps';
 import { ConsumerImpl, RunnableImpl } from '../models/types/Functions';
 import { finalize } from 'rxjs/operators';
-import { FacebookIdWithEmail, GoogleIdWithEmail, PasswordWithEmail } from '../models/types/Form';
+import { FacebookIdWithEmail, GoogleIdWithEmail } from '../models/types/Form';
 import { ReactFacebookLoginInfo } from 'react-facebook-login';
-import UserResource from '../resource/UserResource';
 
 class AuthService {
   public signIn({
