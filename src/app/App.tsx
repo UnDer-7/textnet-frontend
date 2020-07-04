@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import 'loaders.css/loaders.min.css';
 import 'react-block-ui/style.css';
+import DateFnsUtils from '@date-io/date-fns';
+import { ptBR } from 'date-fns/esm/locale';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { MuiThemeProvider } from '@material-ui/core';
 import { Router } from 'react-router-dom';
 
 import './App.scss';
 import createBrowserHistory from './config/History';
 import Routes from './Routes';
-import { MuiThemeProvider } from '@material-ui/core';
 import MaterialThemeConfig from './config/MaterialTheme'
+import { withToast, WithToastProps } from './component/HOC';
+import InterceptorConfigure from './config/InterceptorConfigure';
 
-export default function App() {
+function App({ setToastProp }: WithToastProps): ReactElement<WithToastProps> {
+  InterceptorConfigure.configure(setToastProp);
+
   return (
     <MuiThemeProvider theme={MaterialThemeConfig}>
-      <Router history={ createBrowserHistory }>
-        <Routes />
-      </Router>
+      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptBR}>
+        <Router history={ createBrowserHistory }>
+          <Routes />
+        </Router>
+      </MuiPickersUtilsProvider>
     </MuiThemeProvider>
   );
 }
+
+export default withToast(App)

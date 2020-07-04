@@ -10,7 +10,11 @@ export default function Header(): ReactElement {
           sm={ 6 }
           justify='center'
     >
-      <img  src={Logo} alt="fireSpot"/>
+      <img  src={Logo} alt="textnet" style={{
+        maxWidth: '100%',
+        height: 'auto',
+        width: '100%',
+      }}/>
     </Grid>
   );
 }

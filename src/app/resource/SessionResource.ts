@@ -5,12 +5,14 @@ import { FacebookIdWithEmail, GoogleIdWithEmail, PasswordWithEmail } from '../mo
 
 class SessionResource extends AbstractResource {
   public constructor() {
-    super('session');
+    super('auth');
+  }
+
+  public signIn(body: {email: string, secret: string}): Observable<string> {
+    return this.post<string>(body, '/sign-in');
   }
 
   public signInWithEmail(data: PasswordWithEmail): Observable<any> {
-    // const url = `${ this.BASE_URL }/facebook`;
-
     return timer(3000)
       .pipe(
         tap(() => {
@@ -22,8 +24,6 @@ class SessionResource extends AbstractResource {
   }
 
   public signInWithFacebook(data: FacebookIdWithEmail): Observable<any> {
-    // const url = `${ this.BASE_URL }/facebook`;
-
     return timer(3000)
       .pipe(
         tap(() => {
@@ -35,8 +35,6 @@ class SessionResource extends AbstractResource {
   }
 
   public signInWithGoogle(data: GoogleIdWithEmail): Observable<any> {
-    // const url = `${ this.BASE_URL }/google`;
-
     return timer(3000)
       .pipe(
         tap(() => {

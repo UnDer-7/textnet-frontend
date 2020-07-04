@@ -9,7 +9,7 @@ export default abstract class Verify {
     return object !== undefined;
   }
 
-  public static isNotNullOrUndefined(object: any): boolean {
+  public static isNotUndefinedOrNull(object: any): boolean {
     return this.isNotUndefined(object) && this.isNotNull(object);
   }
 
@@ -21,7 +21,7 @@ export default abstract class Verify {
     return object === undefined;
   }
 
-  public static isNullOrUndefined(object: any): boolean {
+  public static isUndefinedOrNull(object: any): boolean {
     return this.isUndefined(object) || this.isNull(object);
   }
 }

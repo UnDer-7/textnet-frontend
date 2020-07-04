@@ -9,12 +9,14 @@ const styles: CSSProperties = {
 interface Props<T> {
   errors: FieldErrors<T>;
   inputName: string;
+  errMessage?: string
 }
 
-export default function InputInvalid<T>({ errors, inputName }: Props<T>) {
+export default function InputInvalid<T>({ errors, inputName, errMessage }: Props<T>) {
   // @ts-ignore
   const err = errors[inputName];
 
-  if (err) return <span style={ styles }>{ err.message }</span>;
+  // console.log('ERR: ', err?.message);
+  if (err) return <span style={ styles }>{ err.message || errMessage }</span>;
   return null;
 }

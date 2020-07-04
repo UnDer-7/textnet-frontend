@@ -81,7 +81,7 @@ module.exports = function(proxy, allowedHost) {
     // remove last slash so user can land on `/test` instead of `/test/`
     publicPath: paths.publicUrlOrPath.slice(0, -1),
     // WebpackDevServer is noisy by default so we emit custom message instead
-    // by listening to the compiler events with `compiler.hooks[...].tap` calls above.
+    // by listening to the compiler events with `compiler.store[...].tap` calls above.
     quiet: true,
     // Reportedly, this avoids CPU overload on some systems.
     // https://github.com/facebook/create-react-app/issues/293
@@ -100,7 +100,7 @@ module.exports = function(proxy, allowedHost) {
       index: paths.publicUrlOrPath,
     },
     public: allowedHost,
-    // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
+    // `proxy` is run between `before` and `after` `webpack-dev-server` store
     proxy,
     before(app, server) {
       // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`

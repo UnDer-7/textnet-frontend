@@ -13,8 +13,8 @@ export default function WhiteSpace({ spaceBottom, spaceTop }: WhiteSpaceProps): 
     marginTop: `${spaceTop}px`,
   };
 
-  if (Verify.isNullOrUndefined(spaceBottom)) delete style.marginBottom;
-  if (Verify.isNullOrUndefined(spaceTop)) delete style.marginTop;
+  if (Verify.isUndefinedOrNull(spaceBottom)) delete style.marginBottom;
+  if (Verify.isUndefinedOrNull(spaceTop)) delete style.marginTop;
 
   return (<div style={style}/>);
 }
